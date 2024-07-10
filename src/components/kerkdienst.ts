@@ -1,9 +1,10 @@
+// import { MySQLDB } from "../mysql";
+
 export class Kerkdienst {
-    id: number;
-    notities: string;
+    id!: number;
+    notities!: string;
 
     constructor(public datumTijd: Date) {
-
     }
 
     dagdeel(): string {
@@ -13,5 +14,10 @@ export class Kerkdienst {
             return 'middag';
         else
             return 'avond'; 
+    }
+
+    
+    getDataFromDB() {
+        // MySQLDB.testDB();
     }
 } 

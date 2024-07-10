@@ -2,4 +2,6 @@
 /test-results/
 /lib/
 .DS_Store
-/src/config/mysql.config.ts
+**/mysql.config.ts
+package copy.json
+tsconfig COPY.json

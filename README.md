@@ -14,6 +14,9 @@ npm run build:watch
 # Run continuous tests (in parallel terminal)
 npm run test:watch
 
-# Start web server (in parallel terminal)
-npm run serve
+# RUN - Start web server (in parallel terminal) at port 8080  
+npm run start
+
+# DEV - Start web server (in parallel terminal) at port 8080  
+npm run dev
 ```
