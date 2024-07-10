@@ -2,3 +2,4 @@
 /test-results/
 /lib/
 .DS_Store
+/src/config/mysql.config.ts
