@@ -1,4 +1,4 @@
-import { RowDataPacket } from "mysql2"
+import {RowDataPacket} from 'mysql2';
 
 export default interface Kerkdienst extends RowDataPacket {
   kerkdienst_ID?: number;

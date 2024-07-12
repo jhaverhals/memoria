@@ -1,6 +1,6 @@
-import { connectionPool } from "../db/mysql";
-import Kerkdienst from "../models/kerkdienst.model";
-import { OkPacketParams } from "mysql2";
+import {connectionPool} from '../db/mysql';
+import Kerkdienst from '../models/kerkdienst.model';
+import {OkPacketParams} from 'mysql2';
 
 interface IKerkdienstRepository {
   retrieveAll(): Promise<Kerkdienst[]>;
@@ -11,11 +11,9 @@ interface IKerkdienstRepository {
   // delete(kerkdienstId: number): Promise<number>;
 }
 
-class KerkdienstRepository implements IKerkdienstRepository { 
-
+class KerkdienstRepository implements IKerkdienstRepository {
   retrieveAll(): Promise<Kerkdienst[]> {
-
-    let query: string = "SELECT * FROM kerkdienst";  
+    let query: string = 'SELECT * FROM kerkdienst';
 
     return new Promise((resolve, reject) => {
       connectionPool.query<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {
@@ -23,18 +21,18 @@ class KerkdienstRepository implements IKerkdienstRepository {
         else resolve(res);
       });
     });
-    }
+  }
 
   // retrieveAllDate(searchParams: {date?: Date}): Promise<Kerkdienst[]> {
   //   let query: string = "SELECT * FROM kerkdienst";
   //   let condition: string = "";
-    
+
   //   if (searchParams?.date)
   //     condition += `date = '%${searchParams.date}%'`
-    
+
   //   if (condition.length)
   //     query += " WHERE " + condition;
-    
+
   //   return new Promise((resolve, reject) => {
   //     mysqlPool.execute<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {
   //     if (err) reject(err);
@@ -43,7 +41,7 @@ class KerkdienstRepository implements IKerkdienstRepository {
   //   });
   //   }
 
-      // save(kerkdienst: Kerkdienst): Promise<Kerkdienst> {
+  // save(kerkdienst: Kerkdienst): Promise<Kerkdienst> {
   //   return new Promise((resolve, reject) => {
   //     mysqlPool.execute<OkPacketParams>(
   //     "INSERT INTO kerkdienst (dateTime, notities) VALUES(?,?)",
@@ -58,12 +56,11 @@ class KerkdienstRepository implements IKerkdienstRepository {
   //     );
   //   });
   //   }
-//   retrieveById(kerkdienstId: number): Promise<Kerkdienst> { }
+  //   retrieveById(kerkdienstId: number): Promise<Kerkdienst> { }
 
-//   update(kerkdienst: Kerkdienst): Promise<number> { }
+  //   update(kerkdienst: Kerkdienst): Promise<number> { }
 
-//   delete(kerkdienstId: number): Promise<number> { }
-
+  //   delete(kerkdienstId: number): Promise<number> { }
 }
 
 export default new KerkdienstRepository();

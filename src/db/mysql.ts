@@ -1,4 +1,4 @@
-import { createPool } from 'mysql2';
+import {createPool} from 'mysql2';
 import mysqlConfig from '../config/mysql.config';
 
 // export default createPool({
@@ -14,7 +14,7 @@ export const connectionPool = createPool({
   idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
   queueLimit: 0,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 0
+  keepAliveInitialDelay: 0,
 });
 
 // export const connection = await mysql.createConnection({
@@ -25,7 +25,6 @@ export const connectionPool = createPool({
 //   database: mysqlConfig.mysql_database,
 // });
 
-
 // export async function getKerkdiensten() {
 
 //   try {
@@ -33,7 +32,7 @@ export const connectionPool = createPool({
 //       'SELECT * FROM kerkdienst',
 //       []
 //     );
-    
+
 //     console.log(results);
 //     // console.log(fields);
 
@@ -42,7 +41,7 @@ export const connectionPool = createPool({
 //   } catch (err) {
 //     console.log(err);
 //   }
-  
+
 //   const test = [{
 //     id: '1',
 //     q: 'Q'
@@ -59,16 +58,20 @@ export const connectionPool = createPool({
 
 export class mysqlTest {
   testDB() {
-    const kerkdiensten = [{
-      id: '123',
-      q: 'Aaa'
-    }, {
-      id: '234',
-      q: 'Bbb'
-    }, {
-      id:'345',
-      q: 'Ccc __ testDB 2'
-    }]
+    const kerkdiensten = [
+      {
+        id: '123',
+        q: 'Aaa',
+      },
+      {
+        id: '234',
+        q: 'Bbb',
+      },
+      {
+        id: '345',
+        q: 'Ccc __ testDB 2',
+      },
+    ];
 
     return kerkdiensten;
   }

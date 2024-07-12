@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { testPersonVisitCity } from "../controllers/test.controller";
+import {Router} from 'express';
+import {testPersonVisitCity} from '../controllers/test.controller';
 
 class TestRoutes {
   router = Router();
@@ -9,7 +9,7 @@ class TestRoutes {
   }
 
   intializeRoutes() {
-    this.router.get("/", testPersonVisitCity);
+    this.router.get('/', testPersonVisitCity);
   }
 }
 

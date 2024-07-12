@@ -7,6 +7,8 @@
     "scripts": {
         "build": "npx tsc",
         "build:watch": "npx tsc --watch",
+        "clean": "rimraf lib test-results",
+        "format": "prettier src/**/*.ts --write",
         "dev": "tsx watch src/server.ts",
         "start": "node lib/server.js"
     },
@@ -22,6 +24,8 @@
     "devDependencies": {
         "@types/express": "^4.17.21",
         "@types/node": "^20.14.10",
+        "prettier": "^3.3.2",
+        "rimraf": "^6.0.1",
         "tsx": "^4.16.2",
         "typescript": "^5.5.3"
     }
