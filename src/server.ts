@@ -9,6 +9,8 @@ const app = express();
 
 new Routes(app);
 
+app.use(express.static(path.join(__dirname, '../app')));
+
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../app/index.html'));
 });
