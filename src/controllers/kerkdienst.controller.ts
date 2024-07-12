@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
-import Kerkdienst from "../models/kerkdienst.model.js";
-import kerkdienstRepository from "../repositories/kerkdienst.repository.js";
+import Kerkdienst from "../models/kerkdienst.model";
+import kerkdienstRepository from "../repositories/kerkdienst.repository";
 
 export default class KerkdienstController {
   async findAll(req: Request, res: Response) {
@@ -9,12 +9,10 @@ export default class KerkdienstController {
 
     try {
       const kerkdiensten = await kerkdienstRepository.retrieveAll();
-      console.log(kerkdiensten);
-      console.log('--> sup');
-
+      
       res.status(200).send(kerkdiensten);
     } catch (err) {
-      console.log('-----------error: ');
+      console.log('----------> error: ');
       console.log(err);
 
       res.status(500).json({

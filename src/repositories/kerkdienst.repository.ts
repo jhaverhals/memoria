@@ -1,5 +1,5 @@
-import mysqlPool, {connection, getKerkdiensten} from "../db/mysql.js";
-import Kerkdienst from "../models/kerkdienst.model.js";
+import { connectionPool } from "../db/mysql";
+import Kerkdienst from "../models/kerkdienst.model";
 import { OkPacketParams } from "mysql2";
 
 interface IKerkdienstRepository {
@@ -18,31 +18,10 @@ class KerkdienstRepository implements IKerkdienstRepository {
     let query: string = "SELECT * FROM kerkdienst";  
 
     return new Promise((resolve, reject) => {
-      console.log('x 1');
-
-      mysqlPool.execute<Kerkdienst[]>(query, (err: any, elements: any) => {
-        console.log('$$ ');
-        console.log(err);
-        console.log('@@ ');
-        console.log(elements);
-         
+      connectionPool.query<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {
         if (err) reject(err);
-        else resolve(elements);
+        else resolve(res);
       });
-        // .then( result => {
-        //   console.log('x 2');
-        //   console.log(result);
-        //   reject();
-        //   // resolve(result);
-        // })
-        // .catch (console.log);
-  
-
-      // connection.query<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {
-      //   console.log('x 2');
-      //   if (err) reject(err);
-      //   else resolve(res);
-      // });
     });
     }
 

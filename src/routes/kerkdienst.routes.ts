@@ -1,5 +1,5 @@
 import { Router } from "express";
-import KerkdienstController from "../controllers/kerkdienst.controller.js";
+import KerkdienstController from "../controllers/kerkdienst.controller";
 
 class KerkdienstRoutes {
   router = Router();

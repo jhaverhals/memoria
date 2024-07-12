@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { testPersonVisitCity } from "../controllers/test.controller.js";
+import { testPersonVisitCity } from "../controllers/test.controller";
 
 class TestRoutes {
   router = Router();

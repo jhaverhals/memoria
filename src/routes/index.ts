@@ -1,7 +1,7 @@
 import { Application } from "express";
-import homeRoutes from "./home.routes.js";
-import testRoutes from "./test.routes.js";
-import kerkdienstRoutes from "./kerkdienst.routes.js";
+import homeRoutes from "./home.routes";
+import testRoutes from "./test.routes";
+import kerkdienstRoutes from "./kerkdienst.routes";
 
 export default class Routes {
   constructor(app: Application) {

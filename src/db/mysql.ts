@@ -1,7 +1,8 @@
-import mysql from 'mysql2/promise';
-import mysqlConfig from '../config/mysql.config.js';
+import { createPool } from 'mysql2';
+import mysqlConfig from '../config/mysql.config';
 
-export default mysql.createPool({
+// export default createPool({
+export const connectionPool = createPool({
   host: mysqlConfig.mysql_host,
   port: mysqlConfig.mysql_port,
   user: mysqlConfig.mysql_user,
@@ -16,45 +17,45 @@ export default mysql.createPool({
   keepAliveInitialDelay: 0
 });
 
-export const connection = await mysql.createConnection({
-  host: mysqlConfig.mysql_host,
-  port: mysqlConfig.mysql_port,
-  user: mysqlConfig.mysql_user,
-  password: mysqlConfig.mysql_pwd,
-  database: mysqlConfig.mysql_database,
-});
+// export const connection = await mysql.createConnection({
+//   host: mysqlConfig.mysql_host,
+//   port: mysqlConfig.mysql_port,
+//   user: mysqlConfig.mysql_user,
+//   password: mysqlConfig.mysql_pwd,
+//   database: mysqlConfig.mysql_database,
+// });
 
 
-export async function getKerkdiensten() {
+// export async function getKerkdiensten() {
 
-  try {
-    const [results, fields] = await connection.execute(
-      'SELECT * FROM kerkdienst',
-      []
-    );
+//   try {
+//     const [results, fields] = await connection.execute(
+//       'SELECT * FROM kerkdienst',
+//       []
+//     );
     
-    console.log(results);
-    // console.log(fields);
+//     console.log(results);
+//     // console.log(fields);
 
-    // return JSON.stringify(results);
+//     // return JSON.stringify(results);
 
-  } catch (err) {
-    console.log(err);
-  }
+//   } catch (err) {
+//     console.log(err);
+//   }
   
-  const test = [{
-    id: '1',
-    q: 'Q'
-  }, {
-    id: '2',
-    q: 'R'
-  }, {
-    id:'3',
-    q: 'S'
-  }]
+//   const test = [{
+//     id: '1',
+//     q: 'Q'
+//   }, {
+//     id: '2',
+//     q: 'R'
+//   }, {
+//     id:'3',
+//     q: 'S'
+//   }]
 
-  return test;
-}
+//   return test;
+// }
 
 export class mysqlTest {
   testDB() {
