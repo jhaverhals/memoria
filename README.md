@@ -23,7 +23,7 @@ npm run dev
 
 ## Configure mysql database connection properties
 
-1. Create new file: `src/config/mysql.config.ts`
+1. Create new file: `backend/src/config/mysql.config.ts`
 2. Put below content in it, replace the <..> placeholders with your values
     ```bash
     export default {
