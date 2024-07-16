@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import cors from 'cors'
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Routes from "./routes/index";
@@ -6,6 +7,8 @@ import Routes from "./routes/index";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
+
+app.use(cors());
 
 new Routes(app);
 

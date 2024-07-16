@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Memoria</title>
+    <link rel="stylesheet" href="default.css">
+  </head>
+  <body>
+    <h1>Memoria</h1>
+    Test
+    <script>
+      console.log('---> index.html :-)')
+      fetch('/api/test')
+        .then(response => response.json())
+        .then(testy => console.log(testy))
+      fetch('/api/kerkdienst')
+        .then(response => response.json())
+        .then(testy => console.log(testy))
+    </script>
+  </body>
+</html>

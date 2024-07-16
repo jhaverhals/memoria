@@ -1,5 +1,3 @@
-// import { MySQLDB } from "../mysql";
-
 export class Kerkdienst {
   id!: number;
   notities!: string;
@@ -10,9 +8,5 @@ export class Kerkdienst {
     if (this.datumTijd.getHours() < 12) return 'ochtend';
     else if (this.datumTijd.getHours() < 18) return 'middag';
     else return 'avond';
-  }
-
-  getDataFromDB() {
-    // MySQLDB.testDB();
   }
 }
