@@ -7,11 +7,10 @@
     "scripts": {
         "backend": "npm run dev -w backend",
         "backend:build:watch": "npm run build:watch -w backend",
-        "build:watch": "npm run backend:build:watch",
-        "__build:watch": "concurrently \"npm run backend:build:watch\" \"npm run backend:build:watch\"",
+        "build:watch": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\"  \"npm run backend:build:watch\" \"npm run frontend:build:watch\"",
         "frontend": "npm run dev -w frontend",
-        "frontend:build:watch": "npm run dev -w backend",
-        "start": "concurrently \"npm run backend\" \"npm run frontend\"",
+        "frontend:build:watch": "npm run build:watch -w frontend",
+        "start": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\" \"npm run backend\" \"npm run frontend\"",
         "test:backend": "npm test -w backend",
         "test:frontend": "npm test -w frontend"
     },

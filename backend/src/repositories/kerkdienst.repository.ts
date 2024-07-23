@@ -13,7 +13,7 @@ interface IKerkdienstRepository {
 
 class KerkdienstRepository implements IKerkdienstRepository {
   retrieveAll(): Promise<Kerkdienst[]> {
-    let query: string = 'SELECT * FROM kerkdienst';
+    let query: string = 'SELECT * FROM kerkdienst ORDER BY datumTijd DESC';
 
     return new Promise((resolve, reject) => {
       connectionPool.query<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {

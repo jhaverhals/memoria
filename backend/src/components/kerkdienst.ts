@@ -9,4 +9,5 @@ export class Kerkdienst {
     else if (this.datumTijd.getHours() < 18) return 'middag';
     else return 'avond';
   }
+
 }
