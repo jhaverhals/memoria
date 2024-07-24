@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import List from './components/List'
+import Kerkdiensten from './components/Kerkdienst'
 import type { Kerkdienst } from './types'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
     getKerkdiensten()
   }, [])
 
-  return <>{kerkdiensten.length === 0 ? <p>Finding kerkdiensten...</p> : <List kerkdiensten={kerkdiensten} />}</>
+  return <>{kerkdiensten.length === 0 ? <p>Finding kerkdiensten...</p> : <Kerkdiensten kerkdiensten={kerkdiensten} />}</>
 }
 
 export default App

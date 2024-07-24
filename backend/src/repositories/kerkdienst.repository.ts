@@ -13,7 +13,21 @@ interface IKerkdienstRepository {
 
 class KerkdienstRepository implements IKerkdienstRepository {
   retrieveAll(): Promise<Kerkdienst[]> {
-    let query: string = 'SELECT * FROM kerkdienst ORDER BY datumTijd DESC';
+    // let query: string = 'SELECT * FROM kerkdienst ORDER BY datumTijd DESC';
+    let query: string = `
+      SELECT
+        kerkdienst.*,
+        kerkelijkeDenominatie.naam as denominatie,
+        kerkelijkeGemeente.plaats,
+        kerkdienstEigenschap.eigenschap,
+        kerkdienstEigenschap.categorie
+      FROM
+        kerkdienst
+        LEFT JOIN kerkelijkeGemeente ON kerkdienst.gemeente = kerkelijkeGemeente.id
+        LEFT JOIN kerkelijkeDenominatie ON kerkelijkeGemeente.denominatie = kerkelijkeDenominatie.id 
+        LEFT JOIN kerkdienstEigenschappen ON kerkdienst.id = kerkdienstEigenschappen.kerkdienst
+        LEFT JOIN kerkdienstEigenschap ON kerkdienstEigenschappen.eigenschap = kerkdienstEigenschap.id
+      ORDER BY datumTijd DESC`;
 
     return new Promise((resolve, reject) => {
       connectionPool.query<Kerkdienst[]>(query, (err: any, res: Kerkdienst[] | PromiseLike<Kerkdienst[]>) => {

@@ -39,3 +39,25 @@
 .read-the-docs {
   color: #888;
 }
+
+.below-is-TEMP-taken-from-tailwindcss {color:black}
+
+.flex {
+  display: flex;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.p-4 {
+  padding: 1rem;
+}

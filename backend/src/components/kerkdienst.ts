@@ -1,13 +1,11 @@
 export class Kerkdienst {
-  id!: number;
-  notities!: string;
+  id!: number
+  notities!: string
+  plaats!: string        // via kerkelijkeGemeente
+  denominatie!: string   // via kerkelijkeGemeente.kerkelijkeDenominatie
+  eigenschap!: string    // via kerkdienstEigenschappen.kerkdienstEigenschap
+  categorie!: string     // via kerkdienstEigenschappen.kerkdienstEigenschap
 
   constructor(public datumTijd: Date) {}
-
-  dagdeel(): string {
-    if (this.datumTijd.getHours() < 12) return 'ochtend';
-    else if (this.datumTijd.getHours() < 18) return 'middag';
-    else return 'avond';
-  }
 
 }
