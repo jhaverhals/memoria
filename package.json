@@ -5,23 +5,20 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "backend": "npm run dev -w backend",
-        "backend:build:watch": "npm run build:watch -w backend",
-        "build:watch": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\"  \"npm run backend:build:watch\" \"npm run frontend:build:watch\"",
-        "frontend": "npm run dev -w frontend",
-        "frontend:build:watch": "npm run build:watch -w frontend",
-        "start": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\" \"npm run backend\" \"npm run frontend\"",
-        "test:backend": "npm test -w backend",
-        "test:frontend": "npm test -w frontend"
+        "preinstall": "npx only-allow pnpm",
+        "backend": "pnpm --filter=backend run dev",
+        "backend:build:watch": "pnpm --filter=backend run build:watch",
+        "build:watch": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\"  \"pnpm run backend:build:watch\" \"pnpm run frontend:build:watch\"",
+        "frontend": "pnpm --filter=frontend run dev",
+        "frontend:build:watch": "pnpm --filter=frontend run build:watch",
+        "start": "concurrently --names \"BACK,FRONT\" -c \"magenta.bold,bgGreen.bold\" \"pnpm run backend\" \"pnpm run frontend\"",
+        "test:backend": "pnpm --filter=backend test",
+        "test:frontend": "pnpm --filter=frontend test"
     },
     "keywords": [],
     "author": "Johan Haverhals",
     "license": "ISC",
     "devDependencies": {
         "concurrently": "^8.2.2"
-    },
-    "workspaces": [
-        "backend",
-        "frontend"
-    ]
+    }
 }
